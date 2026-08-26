@@ -107,38 +107,92 @@ import 'package:flutter/material.dart';
 // }
 
                               //Checkpoint 5
+// void main() {
+//  runApp(const MyApp());
+// }
+
+
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       title: 'SWE 463 Demo 1',
+//       home: const HomePage(),
+//     );
+//   }
+// }
+
+// class HomePage extends StatelessWidget {
+//   const HomePage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Home Page'),
+//       ),
+//       body: const Center(
+//         child: Text(
+//           'This is the Home Page',
+//           style: TextStyle(fontSize: 24),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class LoginPage extends StatelessWidget {
+//   const LoginPage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Login Page'),
+//       ),
+//       body: const Center(
+//         child: Text(
+//           'This is the Login Page',
+//           style: TextStyle(fontSize: 24),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+
 void main() {
- runApp(const MyApp());
-}
-
-
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'SWE 463 Demo 1',
-      home: const HomePage(),
-    );
-  }
+  runApp(
+    MaterialApp(
+      home: HomePage(),
+    ),
+  );
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page'),
+        title: Text('Home Page'),
       ),
-      body: const Center(
-        child: Text(
-          'This is the Home Page',
-          style: TextStyle(fontSize: 24),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Go to Login'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => LoginPage(),
+              ),
+            );
+          },
         ),
       ),
     );
@@ -146,18 +200,18 @@ class HomePage extends StatelessWidget {
 }
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page'),
+        title: Text('Login Page'),
       ),
-      body: const Center(
-        child: Text(
-          'This is the Login Page',
-          style: TextStyle(fontSize: 24),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Back to Home'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
     );
